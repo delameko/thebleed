@@ -1,0 +1,2 @@
+Contact: security@thebleed.com
+Encryption: https://thebleed.com
