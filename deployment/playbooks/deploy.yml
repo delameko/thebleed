@@ -3,9 +3,9 @@
 - name: deploy | prerequisites
   hosts: appservers
   become: yes
-  become_user: thebleed
+  become_user: stubgun
   vars:
-    site_dir: /home/thebleed/www/thebleed.com
+    site_dir: /home/stubgun/www/thebleed.com
   tasks:
     - name: create site folder (if needed)
       file:
