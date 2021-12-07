@@ -1,2 +1,2 @@
-[appservers]
-do-stubgun
+[all]
+do-monolith
