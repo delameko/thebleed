@@ -1,29 +1,17 @@
 ---
-
 - name: deploy | prerequisites
-  hosts: appservers
+  hosts: all
   become: yes
-  become_user: stubgun
+  become_user: thebleed
   vars:
-    site_dir: /home/stubgun/www/thebleed.com
+    site_dir: /home/thebleed/www/thebleed.com
   tasks:
     - name: create site folder (if needed)
       file:
         path: "{{ site_dir }}"
         state: directory
-
-    - name: does source folder exist?
-      stat:
-        path: "{{ site_dir }}/source"
-      register: sourcelocation
-
     - name: clone repo
       git:
         repo: "https://github.com/delameko/thebleed.git"
-        dest: "{{ site_dir }}/source"
+        dest: "{{ site_dir }}"
 
-    - name: symlink folder to current
-      file:
-        src: "{{ site_dir }}/source"
-        dest: "{{ site_dir }}/current"
-        state: link
